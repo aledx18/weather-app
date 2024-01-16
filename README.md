@@ -1,7 +1,7 @@
 <div align="center">
 <img class="border-radius:5px" src="https://portfolio-aledx18.vercel.app/weatherapp.webp" alt="weather Banner" width="80%"/>
 <p>
-<h3><b>Awesome weather-app</b></h3>
+
 </p>
 </div>
 
