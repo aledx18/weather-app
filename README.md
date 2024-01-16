@@ -1,8 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+<img class="border-radius:5px" src="https://portfolio-aledx18.vercel.app/weatherapp.webp" alt="weather Banner" width="80%"/>
+<p>
+<h3><b>Awesome weather-app</b></h3>
+</p>
+</div>
 
-## Getting Started
+## 📦 Packages:
 
-First, run the development server:
+- ▲  [Nextjs](https://nextjs.org/) - Next generation frontend tooling.
+- 💙 [Typescript](https://www.typescriptlang.org/) - A superset of JavaScript.
+- 💅 [Shadcn UI](https://ui.shadcn.com/) - Accessible component library.
+- 🔏 [Zod](https://zod.dev/) - TypeScript-first schema validation with static type inference
+- 🗓 [React HookForm](https://react-hook-form.com/) - Performant, flexible and extensible forms with easy-to-use validation.
+
+## ⚒️ Getting Started:
+
+You will need:
+
+- [Nodejs 16+](https://nodejs.org/).
+- [Git](https://git-scm.com/).
+
+## 1. Clone the repository:
+
+```
+git clone https://github.com/aledx18/weather-app.git
+```
+
+## 2. Create a .env file with the following variables:
+
+```
+NEXT_PUBLIC_API_KEY
+```
+
+🤔 How to generate the KEY?
+
+- Create a free Api account: [weather/api](https://www.weatherapi.com/).
+- Click on "Pricing" -> "Basic" -> "Subscribe": [/weatherapi-com/pricing](https://www.weatherapi.com/pricing.aspx).
+- Copy the generated Key in the .env.local file.
+
+
+## 3. Install dependencies:
+
+```
+npm install
+```
+
+## 4. Run the app:
 
 ```bash
 npm run dev
@@ -14,11 +57,12 @@ pnpm dev
 bun dev
 ```
 
+## 5. 🥳 Ready! Open the browser and write localhost:3000.
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
