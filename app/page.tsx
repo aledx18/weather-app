@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import { ClientForm } from '@/components/SearchCity/ClientForm'
 import getClima from '@/components/SearchCity/getClima'
 import ChangeTabs from '@/components/Tabs/ChangeTabs'
@@ -31,8 +32,8 @@ export default async function Home({
   const location = res?.location
 
   return (
-    <main>
-      <section className='h-screen lg:p-10 p-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 lg:grid-rows-8 gap-4 lg:gap-4 group [&>*]:min-h-[4rem] [&>*]:rounded-xl [&>*]:transition [&>*]:duration-300 [&>*]:dark:bg-[#131315]'>
+    <main className='h-screen lg:px-6 py-9 p-2'>
+      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 lg:grid-rows-8 gap-4 lg:gap-4 group [&>*]:min-h-[4rem] [&>*]:rounded-xl [&>*]:transition [&>*]:duration-300 [&>*]:dark:bg-[#131315]'>
         <div className='shadow-sm font-medium flex justify-between items-center px-2 lg:col-span-8 lg:row-span-1 border dark:border-none'>
           <div className='px-2 flex gap-2'>
             <IconLogo />
@@ -72,6 +73,7 @@ export default async function Home({
           <Forecastday forecast={forecast} grad={grad} />
         </div>
       </section>
+      <Footer />
     </main>
   )
 }
