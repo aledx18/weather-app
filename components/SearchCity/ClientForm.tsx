@@ -86,136 +86,145 @@ export function ClientForm({ grad }: { grad: string }) {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='flex gap-4'>
-        <FormField
-          control={form.control}
-          name='city'
-          render={({ field }) => (
-            <FormItem className='flex flex-col'>
-              <Popover open={open} onOpenChange={setOpen}>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant='outline'
-                      role='combobox'
-                      className={cn(
-                        'w-[200px] justify-between',
-                        !field.value && 'text-muted-foreground'
-                      )}>
-                      {field.value
-                        ? country.find((coun) => coun.name === field.value.name)
-                            ?.name
-                        : 'Select Country'}
-                      <IconFlag />
-                      <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className='w-[200px] p-0'>
-                  <Command>
-                    <CommandInput
-                      placeholder='Search country...'
-                      className='h-9'
-                    />
-                    <CommandEmpty>No country found.</CommandEmpty>
-                    <CommandGroup className='max-h-[360px] min-h-10'>
-                      {country.map((item) => (
-                        <CommandItem
-                          value={item.name}
-                          key={item.isoCode}
-                          onSelect={() => {
-                            form.setValue('city', {
-                              lat: item.latitude,
-                              long: item.longitude,
-                              name: item.name
-                            })
-                            setOpen(false)
-                            setCountr(item.isoCode)
-                          }}>
-                          {item.name}
-                          <CheckIcon
-                            className={cn(
-                              'ml-auto h-4 w-4',
-                              item.name === field.value?.name
-                                ? 'opacity-100'
-                                : 'opacity-0'
-                            )}
-                          />
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='flex flex-col items-center gap-2 lg:flex-row lg:gap-4'>
+        <div className='flex flex-col md:flex-row lg:flex-none gap-4'>
+          <FormField
+            control={form.control}
+            name='city'
+            render={({ field }) => (
+              <FormItem className='flex flex-col'>
+                <Popover open={open} onOpenChange={setOpen}>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant='outline'
+                        role='combobox'
+                        className={cn(
+                          'w-[200px] justify-between',
+                          !field.value && 'text-muted-foreground'
+                        )}>
+                        {field.value
+                          ? country.find(
+                              (coun) => coun.name === field.value.name
+                            )?.name
+                          : 'Select Country'}
+                        <IconFlag />
+                        <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className='w-[200px] p-0'>
+                    <Command>
+                      <CommandInput
+                        placeholder='Search country...'
+                        className='h-9'
+                      />
+                      <CommandEmpty>No country found.</CommandEmpty>
+                      <CommandGroup className='max-h-[360px] min-h-10'>
+                        {country.map((item) => (
+                          <CommandItem
+                            value={item.name}
+                            key={item.isoCode}
+                            onSelect={() => {
+                              form.setValue('city', {
+                                lat: item.latitude,
+                                long: item.longitude,
+                                name: item.name
+                              })
+                              setOpen(false)
+                              setCountr(item.isoCode)
+                            }}>
+                            {item.name}
+                            <CheckIcon
+                              className={cn(
+                                'ml-auto h-4 w-4',
+                                item.name === field.value?.name
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
+                              )}
+                            />
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name='state'
-          render={({ field }) => (
-            <FormItem className='flex flex-col'>
-              <Popover open={opens} onOpenChange={setOpens}>
-                <PopoverTrigger asChild>
-                  <FormControl>
-                    <Button
-                      variant='outline'
-                      role='combobox'
-                      className={cn(
-                        'w-[200px] justify-between',
-                        !field.value && 'text-muted-foreground'
-                      )}>
-                      {field.value
-                        ? states.find((sta) => sta.name === field.value.name)
-                            ?.name
-                        : 'Select State'}
-                      <IconState />
-                      <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 ' />
-                    </Button>
-                  </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className='w-[200px] p-0'>
-                  <Command>
-                    <CommandInput
-                      placeholder='Search state...'
-                      className='h-9'
-                    />
-                    <CommandEmpty>No state found.</CommandEmpty>
-                    <CommandGroup className='max-h-[480px] min-h-10'>
-                      {states.map((sta) => (
-                        <CommandItem
-                          value={sta.name}
-                          key={sta.isoCode}
-                          onSelect={() => {
-                            form.setValue('state', {
-                              latitud: sta.latitude || '',
-                              longitud: sta.longitude || '',
-                              name: sta.name
-                            })
-                            setOpens(false)
-                          }}>
-                          {sta.name}
-                          <CheckIcon
-                            className={cn(
-                              'ml-auto h-4 w-4',
-                              sta.name === field.value?.name
-                                ? 'opacity-100'
-                                : 'opacity-0'
-                            )}
-                          />
-                        </CommandItem>
-                      ))}
-                    </CommandGroup>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button disabled={loading} type='submit' variant='outline'>
+          <FormField
+            control={form.control}
+            name='state'
+            render={({ field }) => (
+              <FormItem className='flex flex-col'>
+                <Popover open={opens} onOpenChange={setOpens}>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant='outline'
+                        role='combobox'
+                        className={cn(
+                          'w-[200px] justify-between',
+                          !field.value && 'text-muted-foreground'
+                        )}>
+                        {field.value
+                          ? states.find((sta) => sta.name === field.value.name)
+                              ?.name
+                          : 'Select State'}
+                        <IconState />
+                        <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 ' />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className='w-[200px] p-0'>
+                    <Command>
+                      <CommandInput
+                        placeholder='Search state...'
+                        className='h-9'
+                      />
+                      <CommandEmpty>No state found.</CommandEmpty>
+                      <CommandGroup className='max-h-[480px] min-h-10'>
+                        {states.map((sta) => (
+                          <CommandItem
+                            value={sta.name}
+                            key={sta.isoCode}
+                            onSelect={() => {
+                              form.setValue('state', {
+                                latitud: sta.latitude || '',
+                                longitud: sta.longitude || '',
+                                name: sta.name
+                              })
+                              setOpens(false)
+                            }}>
+                            {sta.name}
+                            <CheckIcon
+                              className={cn(
+                                'ml-auto h-4 w-4',
+                                sta.name === field.value?.name
+                                  ? 'opacity-100'
+                                  : 'opacity-0'
+                              )}
+                            />
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+        <Button
+          disabled={loading}
+          type='submit'
+          variant='outline'
+          size='personal'>
           {loading ? (
             <ReloadIcon className='mr-2 h-4 w-4 animate-spin' />
           ) : (
