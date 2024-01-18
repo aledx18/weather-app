@@ -14,7 +14,7 @@ export default function MapL({ locat }: { locat: string }) {
           filter: 'opacity(0.7)'
         }}
         width='100%'
-        height='205'
+        height='100%'
         src={sanitizeUrl(srcU)}
       />
     </div>

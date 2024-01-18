@@ -32,8 +32,8 @@ export default async function Home({
   const location = res?.location
 
   return (
-    <main className='h-screen lg:px-6 py-9 p-2'>
-      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 lg:grid-rows-8 gap-4 lg:gap-4 group [&>*]:min-h-[4rem] [&>*]:rounded-xl [&>*]:transition [&>*]:duration-300 [&>*]:dark:bg-[#131315]'>
+    <main className='h-screen p-4'>
+      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 lg:grid-rows-8 gap-4 lg:h-full lg:gap-4 group [&>*]:min-h-[4rem] [&>*]:rounded-xl [&>*]:transition [&>*]:duration-300 [&>*]:dark:bg-[#131315]'>
         <div className='shadow-sm font-medium flex flex-col lg:gap-0 gap-2 lg:py-0 py-2 lg:flex-row justify-between items-center px-2 lg:col-span-8 lg:row-span-1 border dark:border-none'>
           <div className='px-2 flex gap-2'>
             <IconLogo />
@@ -50,7 +50,7 @@ export default async function Home({
         <div className='flex items-center justify-center lg:col-span-1 lg:row-span-2 shadow-md'>
           <Sun forecast={forecast} />
         </div>
-        <div className='font-medium gap-4 lg:col-span-2 lg:row-span-2'>
+        <div className='flex font-medium gap-4 lg:col-span-2 lg:row-span-2'>
           <MapL locat={locat} />
         </div>
         <div className='flex flex-col px-4 lg:py-0 py-2 lg:gap-0 gap-2 shadow-md justify-evenly lg:col-span-2 lg:row-span-3'>
@@ -63,8 +63,9 @@ export default async function Home({
         <div className='flex items-center justify-center lg:col-span-1 lg:row-span-2 shadow-md'>
           <Moon forecast={forecast} />
         </div>
-        <div className='flex flex-col shadow-md justify-evenly lg:col-span-2 lg:row-span-5' />
-
+        <div className='flex flex-col shadow-md justify-end lg:col-span-2 lg:row-span-5'>
+          <Footer />
+        </div>
         <div className='flex items-center justify-center lg:col-span-1 shadow-md lg:row-span-1'>
           <ModeToggle />
         </div>
@@ -73,7 +74,6 @@ export default async function Home({
           <Forecastday forecast={forecast} grad={grad} />
         </div>
       </section>
-      <Footer />
     </main>
   )
 }
