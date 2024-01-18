@@ -13,6 +13,7 @@ import * as z from 'zod'
 
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import {
   Command,
   CommandEmpty,
@@ -88,7 +89,7 @@ export function ClientForm({ grad }: { grad: string }) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='flex flex-col items-center gap-2 lg:flex-row lg:gap-4'>
+        className='flex flex-col items-start gap-2 lg:flex-row lg:gap-4'>
         <div className='flex flex-col md:flex-row lg:flex-none gap-4'>
           <FormField
             control={form.control}
@@ -122,32 +123,34 @@ export function ClientForm({ grad }: { grad: string }) {
                         className='h-9'
                       />
                       <CommandEmpty>No country found.</CommandEmpty>
-                      <CommandGroup className='max-h-[360px] min-h-10'>
-                        {country.map((item) => (
-                          <CommandItem
-                            value={item.name}
-                            key={item.isoCode}
-                            onSelect={() => {
-                              form.setValue('city', {
-                                lat: item.latitude,
-                                long: item.longitude,
-                                name: item.name
-                              })
-                              setOpen(false)
-                              setCountr(item.isoCode)
-                            }}>
-                            {item.name}
-                            <CheckIcon
-                              className={cn(
-                                'ml-auto h-4 w-4',
-                                item.name === field.value?.name
-                                  ? 'opacity-100'
-                                  : 'opacity-0'
-                              )}
-                            />
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
+                      <ScrollArea className='max-h-72 w-48'>
+                        <CommandGroup>
+                          {country.map((item) => (
+                            <CommandItem
+                              value={item.name}
+                              key={item.isoCode}
+                              onSelect={() => {
+                                form.setValue('city', {
+                                  lat: item.latitude,
+                                  long: item.longitude,
+                                  name: item.name
+                                })
+                                setOpen(false)
+                                setCountr(item.isoCode)
+                              }}>
+                              {item.name}
+                              <CheckIcon
+                                className={cn(
+                                  'ml-auto h-4 w-4',
+                                  item.name === field.value?.name
+                                    ? 'opacity-100'
+                                    : 'opacity-0'
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </ScrollArea>
                     </Command>
                   </PopoverContent>
                 </Popover>
@@ -187,31 +190,33 @@ export function ClientForm({ grad }: { grad: string }) {
                         className='h-9'
                       />
                       <CommandEmpty>No state found.</CommandEmpty>
-                      <CommandGroup className='max-h-[480px] min-h-10'>
-                        {states.map((sta) => (
-                          <CommandItem
-                            value={sta.name}
-                            key={sta.isoCode}
-                            onSelect={() => {
-                              form.setValue('state', {
-                                latitud: sta.latitude || '',
-                                longitud: sta.longitude || '',
-                                name: sta.name
-                              })
-                              setOpens(false)
-                            }}>
-                            {sta.name}
-                            <CheckIcon
-                              className={cn(
-                                'ml-auto h-4 w-4',
-                                sta.name === field.value?.name
-                                  ? 'opacity-100'
-                                  : 'opacity-0'
-                              )}
-                            />
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
+                      <ScrollArea className='max-h-72 w-48'>
+                        <CommandGroup>
+                          {states.map((sta) => (
+                            <CommandItem
+                              value={sta.name}
+                              key={sta.isoCode}
+                              onSelect={() => {
+                                form.setValue('state', {
+                                  latitud: sta.latitude || '',
+                                  longitud: sta.longitude || '',
+                                  name: sta.name
+                                })
+                                setOpens(false)
+                              }}>
+                              {sta.name}
+                              <CheckIcon
+                                className={cn(
+                                  'ml-auto h-4 w-4',
+                                  sta.name === field.value?.name
+                                    ? 'opacity-100'
+                                    : 'opacity-0'
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </ScrollArea>
                     </Command>
                   </PopoverContent>
                 </Popover>
@@ -222,6 +227,7 @@ export function ClientForm({ grad }: { grad: string }) {
         </div>
         <Button
           disabled={loading}
+          className=''
           type='submit'
           variant='outline'
           size='personal'>
