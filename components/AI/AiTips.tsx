@@ -1,15 +1,15 @@
 'use client'
 import { Current } from '@/lib/interface/types'
-import { getPepe } from './getPepe'
+// import { getPepe } from './getPepe'
 import { useCompletion } from 'ai/react'
 
 export default function AiTips({ current }: { current: Current }) {
-  const { completion, input, error } = useCompletion()
+  const { completion, error } = useCompletion()
 
-  const res = getPepe({
-    text: current.condition.text,
-    condition: current.feelslike_c.toString()
-  }).then((res) => console.log(res))
+  //   const res = getPepe({
+  //     text: current.condition.text,
+  //     condition: current.feelslike_c.toString()
+  //   }).then((res) => console.log(res))
 
   return (
     <div className='flex flex-col w-full max-w-md py-24 mx-auto stretch'>
