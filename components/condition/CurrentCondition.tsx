@@ -13,26 +13,32 @@ export default async function CurrentCondition({
   return (
     <div className='flex flex-col justify-center items-center'>
       <div className='flex items-center gap-3 rounded-sm'>
-        <img src={current.condition.icon} alt='' className='w-18' />
+        <img
+          src={current.condition.icon}
+          alt=''
+          className='w-18'
+          width='auto'
+          height='auto'
+        />
         <div className='flex flex-col'>
           <div className='flex items-center gap-4'>
             <div className='flex items-center'>
-              <h2 className='text-7xl font-semibold'>
-                {grad === 'C' ? current.temp_c : current.temp_f}{' '}
+              <h2 className='lg:text-7xl text-6xl font-semibold'>
+                {grad === 'C' ? current.temp_c : Math.round(current.temp_f)}{' '}
               </h2>
-              <p className='text-2xl text-[#8a8a93] pb-10'>
+              <p className='lg:text-xl text-xl text-[#8a8a93] pb-10'>
                 {grad === 'C' ? '°C' : '°F'}
               </p>
             </div>
             <div className='flex flex-col'>
-              <p className='flex items-center text-md font-semibold'>
+              <p className='flex items-center text-sm lg:text-md font-semibold'>
                 {' '}
                 <ArrowUpIcon className='text-red-600' />
                 {grad === 'C'
                   ? `${forecast.forecastday[0].day.maxtemp_c}°C`
                   : `${forecast.forecastday[0].day.maxtemp_f}°F`}
               </p>
-              <p className='flex items-center text-md font-semibold'>
+              <p className='flex items-center text-sm lg:text-md font-semibold'>
                 <ArrowDownIcon className='text-blue-600' />
                 {grad === 'C'
                   ? `${forecast.forecastday[0].day.mintemp_c}°C`
@@ -40,7 +46,7 @@ export default async function CurrentCondition({
               </p>
             </div>
           </div>
-          <p className='text-lg pl-1 text-[#8a8a93] '>
+          <p className='lg:text-lg text-md pl-1 text-[#8a8a93] '>
             {current.condition.text}
           </p>
         </div>

@@ -1,19 +1,17 @@
-import Footer from '@/components/Footer'
 import { ClientForm } from '@/components/SearchCity/ClientForm'
-import getClima from '@/components/SearchCity/getClima'
-import ChangeTabs from '@/components/Tabs/ChangeTabs'
-import Moon from '@/components/astro/Moon'
-import Sun from '@/components/astro/Sun'
-
-import CurrentCondition from '@/components/condition/CurrentCondition'
-import LocalTIme from '@/components/condition/LocalTIme'
-import Zone from '@/components/condition/Zone'
-import Wind from '@/components/current/Wind'
-import Forecastday from '@/components/hours/Forecastday'
-import NextDays from '@/components/hours/NextDays'
-import { IconLogo } from '@/components/icons/icons'
-import MapL from '@/components/maps/MapL'
 import { ModeToggle } from '@/components/theme/ModeToggle'
+import ChangeTabs from '@/components/Tabs/ChangeTabs'
+import CurrentCondition from '@/components/condition/CurrentCondition'
+import Footer from '@/components/Footer'
+import Forecastday from '@/components/hours/Forecastday'
+import getClima from '@/components/SearchCity/getClima'
+import LocalTIme from '@/components/condition/LocalTIme'
+import MapL from '@/components/maps/MapL'
+import Moon from '@/components/astro/Moon'
+import NextDays from '@/components/hours/NextDays'
+import Sun from '@/components/astro/Sun'
+import Wind from '@/components/current/Wind'
+import Zone from '@/components/condition/Zone'
 
 export default async function Home({
   searchParams
@@ -32,12 +30,11 @@ export default async function Home({
   const location = res?.location
 
   return (
-    <main className='h-screen p-4'>
-      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-8 lg:grid-rows-8 gap-4 lg:h-full lg:gap-4 group [&>*]:min-h-[4rem] [&>*]:rounded-xl [&>*]:transition [&>*]:duration-300 [&>*]:dark:bg-[#131315]'>
+    <main>
+      <section className='grid p-4 gap-4 grid-cols-1 md:grid-cols-2 lg:max-w-screen-2xl lg:m-auto lg:h-screen lg:gap-4 group lg:grid-cols-8 lg:grid-rows-8 [&>*]:min-h-[4rem] [&>*]:rounded-xl [&>*]:transition [&>*]:duration-300 [&>*]:dark:bg-[#131315]'>
         <div className='shadow-sm font-medium flex flex-col lg:gap-0 gap-2 lg:py-0 py-2 lg:flex-row justify-between items-center px-2 lg:col-span-8 lg:row-span-1 border dark:border-none'>
-          <div className='px-2 flex gap-2'>
-            <IconLogo />
-            <h1>W.App</h1>
+          <div className='px-2 items-center flex gap-2'>
+            <ModeToggle />
           </div>
           <ClientForm grad={grad} />
           <ChangeTabs locat={locat} lat={lat} long={long} />
@@ -47,29 +44,22 @@ export default async function Home({
           <CurrentCondition grad={grad} current={current} forecast={forecast} />
           <LocalTIme location={location} />
         </div>
-        <div className='flex items-center justify-center lg:col-span-1 lg:row-span-2 shadow-md'>
-          <Sun forecast={forecast} />
-        </div>
-        <div className='flex font-medium gap-4 lg:col-span-2 lg:row-span-2'>
+        <div className='flex font-medium gap-4 lg:col-span-3 lg:row-span-2'>
           <MapL locat={locat} />
         </div>
         <div className='flex flex-col px-4 lg:py-0 py-2 lg:gap-0 gap-2 shadow-md justify-evenly lg:col-span-2 lg:row-span-3'>
           <Wind current={current} />
         </div>
-        <div className='flex p-2 flex-col justify-around lg:col-span-3 lg:row-span-3 shadow-md'>
+        <div className='flex p-2 flex-col justify-around lg:col-span-4 lg:row-span-3 shadow-md'>
           <h1 className='text-lg font-medium'>Weather Prediction</h1>
           <NextDays forecast={forecast} grad={grad} />
         </div>
-        <div className='flex items-center justify-center lg:col-span-1 lg:row-span-2 shadow-md'>
+        <div className='flex flex-col gap-1 py-2 shadow-md justify-between px-4 lg:col-span-2 lg:row-span-3'>
           <Moon forecast={forecast} />
-        </div>
-        <div className='flex flex-col shadow-md justify-end lg:col-span-2 lg:row-span-5'>
+          <Sun forecast={forecast} />
           <Footer />
         </div>
-        <div className='flex items-center justify-center lg:col-span-1 shadow-md lg:row-span-1'>
-          <ModeToggle />
-        </div>
-        <div className='flex lg:flex-row flex-wrap lg:gap-0 gap-4 justify-center lg:justify-between shadow-md p-4 lg:col-span-6 lg:row-span-2'>
+        <div className='flex lg:flex-row flex-wrap lg:gap-0 gap-4 justify-center lg:justify-between shadow-md p-4 lg:col-span-8 lg:row-span-2'>
           <h3 className='lg:block hidden text-lg font-medium'>Today</h3>
           <Forecastday forecast={forecast} grad={grad} />
         </div>

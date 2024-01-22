@@ -3026,7 +3026,7 @@ export default function NextDays({
       {forecast.forecastday.map((item, i) => (
         <div
           key={i}
-          className={`flex justify-between items-center px-4 py-2 rounded-md border ${
+          className={`flex justify-between items-center px-4 py-4 rounded-md border ${
             i === 0 ? 'dark:bg-[#27272a] bg-[#f4f4f5]' : ''
           }`}>
           <div className='flex items-center'>
@@ -3034,6 +3034,8 @@ export default function NextDays({
               src={item.day.condition.icon}
               alt={item.day.condition.text}
               className='w-12'
+              width={100}
+              height={100}
             />
             <div>
               <p className='text-[#A9A9A9]'>

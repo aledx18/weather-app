@@ -983,7 +983,7 @@ export default function Forecastday({
       {fin.map((elemento, i) => (
         <div
           key={i}
-          className='px-6 rounded-xl shadow-sm flex flex-col justify-center items-center border'>
+          className='px-8 rounded-xl shadow-sm flex flex-col justify-center items-center border dark:hover:bg-[#27272a] transition-all duration-500'>
           <h2 className='flex items-center'>
             {((parseInt(elemento.time.slice(11, 13), 10) + 11) % 12) + 1}:
             {elemento.time.slice(14, 16)}{' '}
@@ -993,7 +993,9 @@ export default function Forecastday({
             <img
               src={elemento.condition.icon}
               alt='Image'
-              className='rounded-md object-cover w-12'
+              width={100}
+              height={100}
+              className='rounded-md object-cover w-14'
             />
             <h3 className='text-lg font-medium'>
               {grad === 'C' ? (

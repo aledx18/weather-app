@@ -123,7 +123,7 @@ export function ClientForm({ grad }: { grad: string }) {
                         className='h-9'
                       />
                       <CommandEmpty>No country found.</CommandEmpty>
-                      <ScrollArea className='max-h-72 w-48'>
+                      <ScrollArea className='h-72'>
                         <CommandGroup>
                           {country.map((item) => (
                             <CommandItem
@@ -190,7 +190,7 @@ export function ClientForm({ grad }: { grad: string }) {
                         className='h-9'
                       />
                       <CommandEmpty>No state found.</CommandEmpty>
-                      <ScrollArea className='max-h-72 w-48'>
+                      <ScrollArea className='h-72'>
                         <CommandGroup>
                           {states.map((sta) => (
                             <CommandItem
