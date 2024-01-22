@@ -36,7 +36,6 @@ import {
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { IconFlag, IconState } from '@/components/icons/icons'
 
 const FormSchema = z.object({
   city: z.object({
@@ -103,7 +102,7 @@ export function ClientForm({ grad }: { grad: string }) {
                         variant='outline'
                         role='combobox'
                         className={cn(
-                          'w-[200px] justify-between',
+                          'w-40',
                           !field.value && 'text-muted-foreground'
                         )}>
                         {field.value
@@ -111,7 +110,6 @@ export function ClientForm({ grad }: { grad: string }) {
                               (coun) => coun.name === field.value.name
                             )?.name
                           : 'Select Country'}
-                        <IconFlag />
                         <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                       </Button>
                     </FormControl>
@@ -171,15 +169,14 @@ export function ClientForm({ grad }: { grad: string }) {
                         variant='outline'
                         role='combobox'
                         className={cn(
-                          'w-[200px] justify-between',
+                          'w-40',
                           !field.value && 'text-muted-foreground'
                         )}>
                         {field.value
                           ? states.find((sta) => sta.name === field.value.name)
                               ?.name
                           : 'Select State'}
-                        <IconState />
-                        <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 ' />
+                        <CaretSortIcon className='ml-2 h-4 w-4 shrink-0 opacity-50' />
                       </Button>
                     </FormControl>
                   </PopoverTrigger>

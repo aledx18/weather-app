@@ -3,8 +3,8 @@ export function IconFlag() {
     <svg
       xmlns='http://www.w3.org/2000/svg'
       className='icon icon-tabler icon-tabler-flag'
-      width={16}
-      height={16}
+      width={15}
+      height={15}
       viewBox='0 0 24 24'
       strokeWidth={2}
       stroke='currentColor'
@@ -62,8 +62,8 @@ export function Ubication() {
 export function IconState() {
   return (
     <svg
-      width={16}
-      height={16}
+      width={10}
+      height={10}
       viewBox='0 0 24 24'
       strokeWidth={2}
       stroke='currentColor'
