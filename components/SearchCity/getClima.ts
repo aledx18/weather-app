@@ -3052,27 +3052,22 @@ export default async function getClima(latitud: string, longitude: string) {
   const key = process.env.NEXT_PUBLIC_API_KEY
 
   try {
-    // const response = await fetch(
-    //   `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${
-    //     latitud || '40.71277'
-    //   },${longitude || '-74.0059'}&lang=en&days=3&aqi=no&alerts=no`
-    // )
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${
+        latitud || '40.71277'
+      },${longitude || '-74.0059'}&lang=en&days=3&aqi=no&alerts=no`
+    )
 
-    // const data = await response.json()
+    const data = await response.json()
 
-    // if (!data) {
-    //   console.error('error api')
-    //   return
-    // }
-    // return {
-    //   current: data.current || currentEjem,
-    //   location: data.location || locationEjem,
-    //   forecast: data.forecast || forecastEjem
-    // }
+    if (!data) {
+      console.error('error api')
+      return
+    }
     return {
-      current: currentEjem,
-      location: locationEjem,
-      forecast: forecastEjem
+      current: data.current || currentEjem,
+      location: data.location || locationEjem,
+      forecast: data.forecast || forecastEjem
     }
   } catch (e) {
     console.error(e)
