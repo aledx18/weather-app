@@ -85,7 +85,7 @@ export function IconState() {
 export function IconWInd({ strok }: { strok: string }) {
   return (
     <svg
-      className='text-[#53482b] dark:text-[#e4c135]'
+      className='text-[#53482b] dark:text-[#a855f7]'
       width={20}
       height={20}
       viewBox='0 0 24 24'
@@ -123,7 +123,7 @@ export function IconPrec() {
 export function IconTemp() {
   return (
     <svg
-      className='dark:text-[#8cc563] text-[#325948]'
+      className='dark:text-[#22c55e] text-[#325948]'
       width={20}
       height={20}
       viewBox='0 0 24 24'
