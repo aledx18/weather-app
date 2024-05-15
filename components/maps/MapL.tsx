@@ -3,9 +3,7 @@ function sanitizeUrl(url: string) {
 }
 
 export default function MapL({ locat }: { locat: string }) {
-  const srcU = `https://maps.google.com/maps?width=100%25&amp;height=200&amp;hl=en&amp;q=${
-    locat || 'New York'
-  }+(my%20maps)&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed`
+  const srcU = `https://maps.google.com/maps?width=100%25&amp;height=200&amp;hl=en&amp;q=${locat}+(my%20maps)&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed`
   return (
     <div style={{ width: '100%' }}>
       <iframe

@@ -1,3 +1,5 @@
+import { headers } from 'next/headers'
+
 const currentEjem = {
   last_updated_epoch: 1705188600,
   last_updated: '2024-01-13 23:30',
@@ -3051,11 +3053,15 @@ const forecastEjem = {
 export default async function getClima(latitud: string, longitude: string) {
   const key = process.env.NEXT_PUBLIC_API_KEY
 
+  const lat = headers().get('x-latitude')
+  const lon = headers().get('x-longitude')
+  console.log('latitudxd', latitud, 'longitudxd', longitude)
+
   try {
     const response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${key}&q=${
-        latitud || '40.71277'
-      },${longitude || '-74.0059'}&lang=en&days=3&aqi=no&alerts=no`
+        latitud || lat
+      },${longitude || lon}&lang=en&days=3&aqi=no&alerts=no`
     )
 
     const data = await response.json()
@@ -3073,3 +3079,4 @@ export default async function getClima(latitud: string, longitude: string) {
     console.error(e)
   }
 }
+// 40.71277 lon: -74.0059
