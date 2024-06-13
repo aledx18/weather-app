@@ -13,11 +13,17 @@ import Sun from '@/components/astro/Sun'
 import Wind from '@/components/current/Wind'
 import Zone from '@/components/condition/Zone'
 
+import { headers } from 'next/headers'
+
 export default async function Home({
   searchParams
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
+  const latHeader = headers().get('x-latitude')
+  const lonHeader = headers().get('x-longitude')
+  console.log('pageLat...', latHeader, 'pageLong...', lonHeader)
+
   const grad = typeof searchParams.grad === 'string' ? searchParams.grad : 'C'
   const locat = typeof searchParams.locat === 'string' ? searchParams.locat : ''
   const lat = typeof searchParams.lat === 'string' ? searchParams.lat : ''

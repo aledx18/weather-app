@@ -3055,7 +3055,7 @@ export default async function getClima(latitud: string, longitude: string) {
 
   const lat = headers().get('x-latitude')
   const lon = headers().get('x-longitude')
-  console.log('latitudxd', latitud, 'longitudxd', longitude)
+  console.log('latitud...', lat, 'longitud...', lon)
 
   try {
     const response = await fetch(
