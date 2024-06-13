@@ -7,6 +7,7 @@ export function middleware(request: NextRequest) {
   const { geo, url, nextUrl, redirect } = request
 
   console.log('url', url)
+  console.log('geo', geo)
   console.log('nextUrl', nextUrl)
   console.log('redirect', redirect)
   const latitude = geo?.latitude || 'unknown'
