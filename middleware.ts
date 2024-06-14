@@ -4,17 +4,25 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const response = NextResponse.next()
 
-  const { geo, url, nextUrl, redirect } = request
+  const { geo } = request
 
-  console.log('url', url)
-  console.log('geo', geo)
-  console.log('nextUrl', nextUrl)
-  console.log('redirect', redirect)
-  const latitude = geo?.latitude || 'unknown'
-  const longitude = geo?.longitude || 'unknown'
+  //   const geo = request.geo
 
-  response.headers.set('x-latitude', latitude)
-  response.headers.set('x-longitude', longitude)
+  //   geo {
+  //     city: 'San Miguel de Tucumán',
+  //     country: 'AR',
+  //     latitude: '-26.8249',
+  //     longitude: '-65.2237',
+  //     region: 'T'
+  //   }
+
+  const latitude = geo?.latitude || ''
+  const longitude = geo?.longitude || ''
+  const city = geo?.city || ''
+
+  response.headers.set('headersLatitude', latitude)
+  response.headers.set('headersLongitude', longitude)
+  response.headers.set('city', city)
 
   return response
 }

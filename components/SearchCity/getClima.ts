@@ -3053,9 +3053,12 @@ const forecastEjem = {
 export default async function getClima(latitud: string, longitude: string) {
   const key = process.env.NEXT_PUBLIC_API_KEY
 
-  const lat = headers().get('x-latitude')
-  const lon = headers().get('x-longitude')
-  console.log('latitud...', lat, 'longitud...', lon)
+  const lat = headers().get('headersLatitude')
+  const lon = headers().get('headersLongitude')
+
+  console.log('headersLongitude:', lon, 'headersLatitude :', lat)
+
+  console.log('latitud:', latitud, 'longitude:', longitude)
 
   try {
     const response = await fetch(
@@ -3079,4 +3082,3 @@ export default async function getClima(latitud: string, longitude: string) {
     console.error(e)
   }
 }
-// 40.71277 lon: -74.0059

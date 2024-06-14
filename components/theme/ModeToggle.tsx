@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
+import Link from 'next/link'
 
 export function ModeToggle() {
   const { setTheme } = useTheme()
@@ -18,7 +19,9 @@ export function ModeToggle() {
   return (
     <>
       <DropdownMenu>
-        <h1>WApp</h1>
+        <Link href='/'>
+          <h1>Weather-App</h1>
+        </Link>
         <DropdownMenuTrigger asChild>
           <Button variant='outline' size='icon'>
             <SunIcon className='h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0' />
