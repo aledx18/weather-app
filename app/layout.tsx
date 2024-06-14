@@ -3,7 +3,6 @@ import { ReactNode } from 'react'
 import localFont from 'next/font/local'
 import type { Metadata } from 'next'
 import { Toaster } from '@/components/ui/toaster'
-import { ThemeProvider } from '@/components/theme/theme-provider'
 
 const satoshiFont = localFont({
   src: '../public/fonts/Satoshi-Variable.woff2',
@@ -22,13 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang='en' className={satoshiFont.className}>
       <link rel='icon' href='/favicon.ico' sizes='any' />
       <body>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-          disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
+        {children}
         <Toaster />
       </body>
     </html>
