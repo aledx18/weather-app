@@ -85,7 +85,7 @@ export function IconState() {
 export function IconWInd({ strok }: { strok: string }) {
   return (
     <svg
-      className='text-[#53482b] dark:text-[#a855f7]'
+      className='text-[#a855f7]'
       width={20}
       height={20}
       viewBox='0 0 24 24'
@@ -105,7 +105,7 @@ export function IconWInd({ strok }: { strok: string }) {
 export function IconPrec() {
   return (
     <svg
-      className='text-[#2e3a53] dark:text-[#4686ff]'
+      className='text-[#4686ff]'
       width={20}
       height={20}
       viewBox='0 0 24 24'
@@ -123,7 +123,7 @@ export function IconPrec() {
 export function IconTemp() {
   return (
     <svg
-      className='dark:text-[#22c55e] text-[#325948]'
+      className='text-[#22c55e]'
       width={20}
       height={20}
       viewBox='0 0 24 24'
@@ -142,7 +142,7 @@ export function IconTemp() {
 export function IconHum() {
   return (
     <svg
-      className='dark:text-[#db737a] text-[#693d3e]'
+      className='text-[#db737a]'
       width={20}
       height={20}
       viewBox='0 0 24 24'

@@ -3027,7 +3027,7 @@ export default function NextDays({
         <div
           key={i}
           className={`flex justify-between items-center px-4 py-4 rounded-md border ${
-            i === 0 ? 'dark:bg-[#27272a] bg-[#f4f4f5]' : ''
+            i === 0 ? 'bg-[#27272a]' : ''
           }`}>
           <div className='flex items-center'>
             <img

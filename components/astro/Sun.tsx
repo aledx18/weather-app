@@ -4,7 +4,7 @@ import { IconSunrise, IconSunset } from '../icons/icons'
 export default function Sun({ forecast }: { forecast: Forecast }) {
   return (
     <>
-      <div className='flex flex-col p-4 gap-4 border rounded-lg hover:bg-[#f4f4f5] dark:hover:bg-[#27272a] transition-all duration-500'>
+      <div className='flex flex-col px-4 py-2 gap-4 border rounded-lg hover:bg-[#27272a] transition-all duration-500'>
         <h2 className='font-medium text-sm px-3'>Sunrise & Sunset</h2>
         <div className='flex flex-col gap-2'>
           <div className='flex items-center gap-2'>
